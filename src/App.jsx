@@ -7,8 +7,8 @@ import {Routes , Route} from "react-router-dom"
 function App() {
 
   return (
-    <div className="App">
-            <Routes>
+    <div className="App h-screen bg-purple-100 overflow-hidden">
+      <Routes>
         {/* <Route path='' element={<LandingPage/>}/> */}
         <Route path='/' element={<Home/>}/>
         <Route path='/products' element={<Products/>}/>

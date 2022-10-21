@@ -1,10 +1,13 @@
 import React from 'react'
+import Bienvenida from '../components/Bienvenida'
 import Nav from '../components/Nav'
-
+import Footer from '../components/Footer'
 function Home() {
   return (
-    <div>
+    <div className='h-full flex flex-col justify-evenly'>
       <Nav/>
+      <Bienvenida/>
+      <Footer/>
     </div>
   )
 }
