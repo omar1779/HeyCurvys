@@ -2,7 +2,10 @@ import React from 'react'
 
 function DetailProduct() {
   return (
-    <div>DetailProduct</div>
+    <div>
+      <Nav/>
+      <Footer/>
+    </div>
   )
 }
 
