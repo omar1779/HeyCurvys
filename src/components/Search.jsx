@@ -3,9 +3,9 @@ import {BsSearch} from "react-icons/bs"
 import Pagination from "./Pagination"
 function Search() {
   return (
-      <div className="h-1/6 pl-5 pr-5 bg-purple-100">
+      <div className="h-5/5 pl-5 pr-5">
         <form>
-          <div className="relative mb-1">
+          <div className="relative mb-1 flex flex-col">
             <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
 								<BsSearch/>
             </div>
@@ -28,7 +28,9 @@ function Search() {
             </button>
           </div>
         </form>
+        <div className="mt-10 lg:mt-10">
 				<Pagination/>
+        </div>
       </div>
   );
 }
