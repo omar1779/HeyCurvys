@@ -42,14 +42,14 @@ function Nav() {
                 className="hover:animate-ping"
                 onClick={() => setMenu(false)}
               >
-                Products
+                Productos
               </Link>
               <Link
                 to="/profile"
                 className="hover:animate-ping"
                 onClick={() => setMenu(false)}
               >
-                Profile
+                Admin. panel
               </Link>
               <Link
                 to="/Cart"
