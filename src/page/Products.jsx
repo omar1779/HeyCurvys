@@ -35,7 +35,7 @@ function Products() {
           </div>
         </div>
       ) : (
-        <div className="h-full bg-gradient-to-r from-violet-900 to-transparent flex flex-col lg:justify-between">
+        <div className="h-full bg-white flex flex-col lg:justify-between">
           <div className="h-auto mb-3">
             <Nav />
           </div>

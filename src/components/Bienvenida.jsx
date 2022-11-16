@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function Bienvenida() {
   return (
-    <div className="flex h-4/5 flex-col lg:flex-row items-center justify-around lg:pl-10 text-center">
+    <div className="flex h-full flex-col lg:flex-row items-center justify-around lg:pl-10 text-center">
       <img src="../../public/Online shopping-amico (1).svg"
 			className="h-80 w-80 md:h-96 md:w-96 lg:h-64 lg:w-64 3xl:h-96 3xl:w-96 3xl:mr-32 3xl:ml-32"
 			alt="woman" />

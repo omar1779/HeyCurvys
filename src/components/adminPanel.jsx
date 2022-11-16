@@ -18,7 +18,7 @@ function AdminPanel() {
         </div>
       ) : (
         <>
-          <Form />
+          <Form/>
         </>
       )}
     </div>

@@ -39,7 +39,6 @@ function ProductsList() {
               {products?.map((e) => (
                 <div key={e._id}>
                   <Card key={e._id} name={e.name} img={e.image} price={e.price} />
-                  ;
                 </div>
               ))}
             </div>
