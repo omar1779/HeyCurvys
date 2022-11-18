@@ -35,9 +35,9 @@ export const productSlice = createSlice({
     },
   },
 });
-export const getAllProductsAsync = (page, limit,) => async (dispatch) => {
+export const getAllProductsAsync = (page, limit,category) => async (dispatch) => {
     try {
-      const response = await axios.get(`http://localhost:9000/get/products?page=${page || 1}&limit=${limit || 10}`);
+      const response = await axios.get(`http://localhost:9000/get/products?page=${page || 1}&limit=${limit || 10}&filter=${"allProducts" ||category}`);
       dispatch(getAllProducts(response.data));
       console.log(response.data, "data de Db");
     } catch (err) {

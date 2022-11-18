@@ -1,16 +1,15 @@
 import React from "react";
 import Nav from "../components/Nav";
-import Footer from "../components/Footer";
 import ProductsList from "../components/ProductsList";
-import { useSelector ,useDispatch} from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { getAllProductsAsync } from "../features/product/productSlice";
 import { useEffect } from "react";
 function Products() {
-  const {products} = useSelector(state => state.products)
-  const dispatch = useDispatch()
-  useEffect(()=>{
-    dispatch(getAllProductsAsync())
-  },[dispatch])
+  const { products } = useSelector((state) => state.products);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getAllProductsAsync());
+  }, [dispatch]);
   return (
     <>
       {products.length === 0 ? (
@@ -35,16 +34,9 @@ function Products() {
           </div>
         </div>
       ) : (
-        <div className="h-full bg-white flex flex-col lg:justify-between">
-          <div className="h-auto mb-3">
-            <Nav />
-          </div>
-          <div className="h-full lg:h-5/6">
-            <ProductsList />
-          </div>
-          <div className="h-auto">
-            <Footer />
-          </div>
+        <div className="bg-purple-100 h-full flex justify-between">
+          <Nav />
+          <ProductsList />
         </div>
       )}
     </>
