@@ -1,10 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { signInWithPopup, GoogleAuthProvider, signOut } from "firebase/auth";
+import { signInWithPopup, GoogleAuthProvider, signOut,} from "firebase/auth";
 import { auth } from "../../firebase/firebase.config";
 
 const provider = new GoogleAuthProvider();
 const initialState = {
-  admin: "",
+  user: "",
 };
 
 export const adminSlice = createSlice({
@@ -12,10 +12,10 @@ export const adminSlice = createSlice({
   initialState,
   reducers: {
     googleAutheticationSuccess: (state, action) => {
-      state.admin = action.payload;
+      state.user = action.payload;
     },
     logoutAdminSuccess: (state, action) => {
-      state.admin = action.payload;
+      state.user = action.payload;
     },
   },
 });
@@ -23,7 +23,7 @@ export const adminSlice = createSlice({
 export const adminLogin = () => async (dispatch) => {
   try {
     const response = await signInWithPopup(auth, provider);
-    dispatch(googleAutheticationSuccess(response.user.email));
+    dispatch(googleAutheticationSuccess(response.user));
     console.log(response, "ProviderResponse");
   } catch (error) {
     console.log(error);

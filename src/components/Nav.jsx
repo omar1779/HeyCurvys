@@ -1,12 +1,17 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { AiFillHome, AiFillShopping, AiFillProfile } from "react-icons/ai";
 import { BsFillCartCheckFill } from "react-icons/bs";
 import { IoShareSocialSharp } from "react-icons/io5";
 import { RiAdminFill } from "react-icons/ri";
 function Nav() {
+
   const [sidebar, setSidebar] = useState("");
   const [iconMobile, setIconMobile] = useState(false);
+  const envAdmin = import.meta.env.VITE_ADMIN_GOOGLE;
+  const { user } = useSelector((state) => state.admin);
+  console.log(user.email)
   const sidebarHandler = () => {
     if (sidebar === "") {
       setSidebar("hidden");
@@ -68,6 +73,7 @@ function Nav() {
                 </div>
               </Link>
             </li>
+            {user.email ===  envAdmin?
             <li className="flex shadow-sm w-full justify-between text-white hover:text-white cursor-pointer items-center">
               <Link to="/admin">
                 <div className="flex items-center">
@@ -76,6 +82,8 @@ function Nav() {
                 </div>
               </Link>
             </li>
+            :<></>
+          }
           </ul>
           <div className="flex justify-center mt-20 mb-4 w-full">
             <div className="relative ">
@@ -200,6 +208,7 @@ function Nav() {
                 </div>
               </Link>
             </li>
+            {user.email ===  envAdmin?
             <li className="flex shadow-sm w-full justify-between text-white hover:text-white cursor-pointer items-center">
               <Link to="/admin">
                 <div className="flex items-center">
@@ -208,6 +217,8 @@ function Nav() {
                 </div>
               </Link>
             </li>
+            :<></>
+          }
           </ul>
           <div className="flex shadow-sm justify-center mt-20 mb-7 w-full">
             <div className="relative ">

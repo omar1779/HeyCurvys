@@ -1,20 +1,16 @@
-import Home from './page/Home'
-import Products from './page/Products.jsx'
-import DetailProduct from './page/DetailProduct.jsx'
-import Profile from './page/Profile'
-import {Routes , Route} from "react-router-dom"
-
+import {Routes , Route } from "react-router-dom"
+import {useEffect} from"react"
+import { useDispatch } from "react-redux";
+import { getAllProductsAsync } from "./features/product/productSlice";
+import AnimatedRoutes from './components/AnimatedRoutes'
 function App() {
-
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getAllProductsAsync());
+  }, [dispatch]);
   return (
-    <div className="App h-screen overflow-hidden">
-      <Routes>
-        {/* <Route path='' element={<LandingPage/>}/> */}
-        <Route path='/' element={<Home/>}/>
-        <Route path='/products' element={<Products/>}/>
-        <Route path='/products:id' element={<DetailProduct/>}/>
-        <Route path='/profile' element={<Profile/>}/>
-      </Routes>
+    <div className="App h-screen overflow-hidden scrollbar-hide">
+      <AnimatedRoutes/>
     </div>
   )
 }

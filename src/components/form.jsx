@@ -1,32 +1,32 @@
 import React from "react";
 import GoogleButton from "./GoogleButton";
 import { adminLogin } from "../features/auth/authSlice";
-import { useSelector ,useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 function Form() {
-	const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const handlerAdmin = () => {
-		dispatch(adminLogin())
+    dispatch(adminLogin());
   };
   return (
-    <div className="h-full flex flex-col items-center justify-around">
-      <div className="text-center w-full">
-        <h3 className="text-2xl font-thin tracking-tight text-black">
-          Panel de administracion
-        </h3>
-        <p className="mb-3 font-thin text-xl text-gray-800">
-          Acceso solo a personal autorizado
+    <div className="h-full w-full flex flex-col lg:flex-row items-center justify-around lg:justify-evenly">
+      <div className="text-center w-full h-auto flex flex-col items-center">
+        <h1 className="text-3xl pb-5 font-thin tracking-tight text-black">
+          Perfil de usuario
+        </h1>
+        <p className="mb-3 pb-5 font-thin text-2xl text-gray-800 text-center">
+          Crea o Inicia un usuario con Google
         </p>
+        <div
+          className="flex justify-center w-full"
+          onClick={() => {
+            handlerAdmin();
+          }}
+        >
+          <GoogleButton />
+        </div>
       </div>
-      <div className="w-full flex justify-center">
-        <img src="../../public/Blueprint.png" alt="" className="h-60 w-60" />
-      </div>
-      <div
-        className="flex justify-center w-full"
-        onClick={() => {
-          handlerAdmin();
-        }}
-      >
-        <GoogleButton />
+      <div className="w-full lg:h-full flex justify-center items-center">
+        <img src="../../public/Blueprint.png" alt="" className="h-64 w-64 lg:h-70 lg:w-70" />
       </div>
     </div>
   );

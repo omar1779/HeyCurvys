@@ -4,6 +4,7 @@ import ProductsList from "../components/ProductsList";
 import { useSelector, useDispatch } from "react-redux";
 import { getAllProductsAsync } from "../features/product/productSlice";
 import { useEffect } from "react";
+import { motion } from "framer-motion";
 function Products() {
   const { products } = useSelector((state) => state.products);
   const dispatch = useDispatch();
@@ -34,10 +35,14 @@ function Products() {
           </div>
         </div>
       ) : (
-        <div className="bg-purple-100 h-full flex justify-between">
+        <motion.div
+        initial={{opacity: 0}}
+        animate={{opacity:1}}
+        exit={{opacity:0}}
+        className="bg-purple-100 h-full flex justify-between">
           <Nav />
           <ProductsList />
-        </div>
+        </motion.div>
       )}
     </>
   );
