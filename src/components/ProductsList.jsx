@@ -1,15 +1,8 @@
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import Card from "./Card";
-import Search from "./Search";
-import Sidebar from "./Sidebar";
-import { getAllProductsAsync } from "../features/product/productSlice";
-import { AiOutlineArrowDown, AiOutlineArrowUp } from "react-icons/ai";
+import React from "react";
+import { useSelector } from "react-redux";
 
 function ProductsList() {
-  const dispatch = useDispatch();
   const { products } = useSelector((state) => state.products);
-  const page = useSelector((state) => state.products.page);
   return (
     <div className="bg-white h-full flex justify-center items-center p-12 overflow-auto">
       <div className="h-full">

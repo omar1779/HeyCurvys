@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import Pagination from "./Pagination";
+import { Link , useLocation} from "react-router-dom";
 import { AiFillHome, AiFillShopping, AiFillProfile } from "react-icons/ai";
 import { BsFillCartCheckFill } from "react-icons/bs";
 import { IoShareSocialSharp } from "react-icons/io5";
 import { RiAdminFill } from "react-icons/ri";
 function Nav() {
-
+  const location = useLocation()
   const [sidebar, setSidebar] = useState("");
   const [iconMobile, setIconMobile] = useState(false);
   const envAdmin = import.meta.env.VITE_ADMIN_GOOGLE;
   const { user } = useSelector((state) => state.admin);
-  console.log(user.email)
   const sidebarHandler = () => {
     if (sidebar === "") {
       setSidebar("hidden");
@@ -73,19 +73,21 @@ function Nav() {
                 </div>
               </Link>
             </li>
-            {user.email ===  envAdmin?
-            <li className="flex shadow-sm w-full justify-between text-white hover:text-white cursor-pointer items-center">
-              <Link to="/admin">
-                <div className="flex items-center">
-                  <RiAdminFill />
-                  <span className="text-base  ml-2">Administracion</span>
-                </div>
-              </Link>
-            </li>
-            :<></>
-          }
+            {user.email === envAdmin ? (
+              <li className="flex shadow-sm w-full mb-5 justify-between text-white hover:text-white cursor-pointer items-center">
+                <Link to="/admin">
+                  <div className="flex items-center">
+                    <RiAdminFill />
+                    <span className="text-base  ml-2">Administracion</span>
+                  </div>
+                </Link>
+              </li>
+            ) : (
+              <></>
+            )}
           </ul>
-          <div className="flex justify-center mt-20 mb-4 w-full">
+          {location.pathname === "/products" || location.pathname === "/admin"? <Pagination/> : <></> }
+          <div className="flex justify-center mt-3 mb-4 w-full">
             <div className="relative ">
               <input
                 className=" focus:outline-none rounded w-full text-sm text-black bg-gray-100 pl-10 py-2"
@@ -208,24 +210,27 @@ function Nav() {
                 </div>
               </Link>
             </li>
-            {user.email ===  envAdmin?
-            <li className="flex shadow-sm w-full justify-between text-white hover:text-white cursor-pointer items-center">
-              <Link to="/admin">
-                <div className="flex items-center">
-                  <RiAdminFill />
-                  <span className="text-base  ml-2">Administracion</span>
-                </div>
-              </Link>
-            </li>
-            :<></>
-          }
+            {user.email === envAdmin ? (
+              <li className="flex shadow-sm w-full mb-5 justify-between text-white hover:text-white cursor-pointer items-center">
+                <Link to="/admin">
+                  <div className="flex items-center">
+                    <RiAdminFill />
+                    <span className="text-base  ml-2">Administracion</span>
+                  </div>
+                </Link>
+              </li>
+            ) : (
+              <></>
+            )}
           </ul>
-          <div className="flex shadow-sm justify-center mt-20 mb-7 w-full">
+          {location.pathname === "/products" || location.pathname === "/admin"? <Pagination/> : <></> }
+          <div className="flex shadow-sm justify-center mt-3 mb-7 w-full">
             <div className="relative ">
               <input
                 className="focus:outline-none rounded w-full text-base text-black bg-gray-100 pl-10 py-2"
                 type="text"
                 placeholder="Buscar"
+                
               />
             </div>
           </div>

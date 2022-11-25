@@ -4,7 +4,7 @@ import axios from "axios";
 const initialState = {
   products: [],
   page: 1,
-  category: "",
+  category: "allProducts",
   nameDb: "",
   prev: false,
   next: true,
@@ -20,24 +20,28 @@ export const productSlice = createSlice({
       state.next = action.payload.hasNextPage;
     },
     incrementPage: (state) => {
-      if (state.next === false) {
-        state.page += 0;
-      } else {
+      if (state.next) {
         state.page += 1;
       }
     },
     decrementPage: (state) => {
-      if (state.prev === false) {
-        state.page -= 0;
-      } else {
+      if (state.prev) {
         state.page -= 1;
       }
     },
+    setCategory: (state, action) => {
+      state.category = action.payload;
+    },
   },
 });
-export const getAllProductsAsync = (page, limit,category) => async (dispatch) => {
+export const getAllProductsAsync =
+  (page, category) => async (dispatch) => {
     try {
-      const response = await axios.get(`http://localhost:9000/get/products?page=${page || 1}&limit=${limit || 10}&filter=${"allProducts" ||category}`);
+      const response = await axios.get(
+        `http://localhost:9000/get/products?page=${page}&limit=${
+          10
+        }&filter=${category}`
+      );
       dispatch(getAllProducts(response.data));
       console.log(response.data, "data de Db");
     } catch (err) {
@@ -45,7 +49,7 @@ export const getAllProductsAsync = (page, limit,category) => async (dispatch) =>
     }
   };
 
-export const { getAllProducts, incrementPage, decrementPage } =
+export const { getAllProducts, incrementPage, decrementPage , setCategory } =
   productSlice.actions;
 
 export default productSlice.reducer;

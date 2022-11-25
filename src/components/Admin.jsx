@@ -2,13 +2,9 @@ import React from "react";
 import { useSelector } from "react-redux";
 function Admin() {
   const { products } = useSelector((state) => state.products);
-  console.log(products);
-  const handlerNewProduct = () => {};
   return (
-    <div className="overflow-auto scrollbar-hide p-2 h-full flex flex-col w-4/5 items-center sm:p-4   text-black">
-      <div
-        className="flex flex-col w-full"
-      >
+    <div className="overflow-auto p-2 h-full flex flex-col items-center sm:p-4 text-black">
+      <div className="flex flex-col w-full">
         <h2 className="mb-4 text-2xl font-thin text-black text-center">
           Panel de administracion
         </h2>
@@ -22,30 +18,32 @@ function Admin() {
             </tr>
           </thead>
           <tbody>
-            {products.map((elements) => (
-              <tr
-                key={elements._id}
-                className="border-b border-opacity-20 border-gray-700 bg-gray-300"
-              >
-                <td className="pr-3 pl-3 pb-1">
-                  <p>{elements.name}</p>
-                </td>
-                <td className="pr-3 pl-3 pb-1">
-                  <img
-                    className="object-cover w-12 h-12 rounded-full"
-                    src={elements.image}
-                    alt={elements.name}
-                  />
-                </td>
-                <td className="pr-3 pl-3 pb-1">
-                  <p>{elements.price}</p>
-                </td>
-                <td className="text-center">
-                  <button className="bg-violet-900 text-white w-5 h-5 rounded-full">
-                    X
-                  </button>
-                </td>
-              </tr>
+            {products?.map((elements) => (
+              <>
+                <tr
+                  key={elements._id}
+                  className="border-b border-opacity-20 border-gray-700 bg-gray-300"
+                >
+                  <td className="pr-3 pl-3 pb-1">
+                    <p>{elements.name}</p>
+                  </td>
+                  <td className="pr-3 pl-3 pb-1">
+                    <img
+                      className="object-cover w-12 h-12 rounded-full"
+                      src={elements.image}
+                      alt={elements.name}
+                    />
+                  </td>
+                  <td className="pr-3 pl-3 pb-1">
+                    <p>{elements.price}</p>
+                  </td>
+                  <td className="text-center">
+                    <button className="bg-violet-900 text-white w-5 h-5 rounded-full">
+                      X
+                    </button>
+                  </td>
+                </tr>
+              </>
             ))}
           </tbody>
         </table>
