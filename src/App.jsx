@@ -6,10 +6,9 @@ function App() {
   const dispatch = useDispatch();
   const {page} = useSelector((state)=>state.products)
   const {category} = useSelector((state)=>state.products)
-  console.log(category)
   useEffect(() => {
     dispatch(getAllProductsAsync(page,category));
-  }, [page,category]);
+  }, [dispatch,page,category]);
   return (
     <div className="App h-screen overflow-hidden scrollbar-hide">
       <AnimatedRoutes/>

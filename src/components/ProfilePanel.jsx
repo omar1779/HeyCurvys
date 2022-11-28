@@ -13,7 +13,7 @@ function ProfilePanel() {
         <>
         <Ilustration/>
         <div className="h-2/4 flex justify-around items-center flex-col">
-          <h1 className="font-thin text-center text-violet-900 rounded-sm shadow-gray-400 text-3xl">
+          <h1 className="font-thin text-center text-violet-900 rounded-sm shadow-gray-400 text-4xl lg:text-5xl">
             Te damos la bienvenida,<br /> {user.displayName}
           </h1>
           <img className="h-20 w-20 rounded-full shadow-2xl shadow-black" src={user.photoURL}/>

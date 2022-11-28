@@ -17,7 +17,7 @@ function AnimatedRoutes() {
         {/* <Route path='' element={<LandingPage/>}/> */}
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />
-        <Route path="/products:id" element={<DetailProduct />} />
+        <Route path="/:id" element={<DetailProduct />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/admin" element={<AdminPanel />} />
         <Route path="/cart" element={<Cart />} />

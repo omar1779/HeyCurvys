@@ -230,7 +230,6 @@ function Nav() {
                 className="focus:outline-none rounded w-full text-base text-black bg-gray-100 pl-10 py-2"
                 type="text"
                 placeholder="Buscar"
-                
               />
             </div>
           </div>

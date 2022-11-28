@@ -1,17 +1,11 @@
 import React from "react";
 import Nav from "../components/Nav";
 import ProductsList from "../components/ProductsList";
-import { useSelector, useDispatch } from "react-redux";
-import { getAllProductsAsync } from "../features/product/productSlice";
-import { useEffect } from "react";
+import { useSelector,} from "react-redux";
 import { motion } from "framer-motion";
 import Loader from "../components/Loader";
 function Products() {
   const { products } = useSelector((state) => state.products);
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getAllProductsAsync());
-  }, [dispatch]);
   return (
     <>
       {products.length === 0 ? (
