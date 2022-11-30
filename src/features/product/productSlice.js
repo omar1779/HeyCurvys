@@ -3,7 +3,10 @@ import axios from "axios";
 
 const initialState = {
   products: [],
+  cart: [],
   productDetail: {},
+  commercialInvoice: "",
+  totalPrice: 0,
   page: 1,
   category: "allProducts",
   nameDb: "",
@@ -21,7 +24,7 @@ export const productSlice = createSlice({
       state.next = action.payload.hasNextPage;
     },
     getProductDetail: (state, action) => {
-      state.productDetail = action.payload
+      state.productDetail = action.payload;
     },
     incrementPage: (state) => {
       if (state.next) {
@@ -33,8 +36,17 @@ export const productSlice = createSlice({
         state.page -= 1;
       }
     },
+    addProductCart: (state, action) => {
+      state.cart.push(action.payload);
+    },
     setCategory: (state, action) => {
       state.category = action.payload;
+    },
+    setTotalPrice: (state, action) => {
+      state.totalPrice += action.payload;
+    },
+    removeFromCart : (state, action) => {
+      state.cart = state.cart.filter((products) => products._id !== action.payload)
     },
   },
 });
@@ -64,7 +76,7 @@ export const deleteProductAsync = (product) => async () => {
 };
 
 export const getProductByIdAsync = (id) => async (dispatch) => {
-  const parserId = await id.slice(1)
+  const parserId = await id.slice(1);
   console.log(parserId);
   try {
     const response = await axios.get(
@@ -76,7 +88,14 @@ export const getProductByIdAsync = (id) => async (dispatch) => {
   }
 };
 
-export const { getAllProducts, incrementPage, decrementPage, setCategory, getProductDetail } =
-  productSlice.actions;
+export const {
+  getAllProducts,
+  incrementPage,
+  decrementPage,
+  setCategory,
+  getProductDetail,
+  addProductCart,
+  removeFromCart
+} = productSlice.actions;
 
 export default productSlice.reducer;

@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
-import { getProductByIdAsync } from "../features/product/productSlice";
+import { getProductByIdAsync, addProductCart } from "../features/product/productSlice";
 import {BsFillCartCheckFill} from "react-icons/bs"
 
 function Detail() {
@@ -41,7 +41,9 @@ function Detail() {
             $ {productDetail.price}
             </p>
           </div>
-          <div className="flex items-center justify-center cursor-pointer bg-violet-900 rounded-xl mt-4 xl:h-20 shadow-2xl  active:bg-violet-500 hover:bg-violet-500">
+          <div onClick={()=>{
+            dispatch(addProductCart(productDetail))
+          }} className="flex items-center justify-center cursor-pointer bg-violet-900 rounded-xl mt-4 xl:h-20 shadow-2xl  active:bg-violet-500 hover:bg-violet-500">
             <p className="text-2xl md:text-4xl font-thin text-white mr-4 animate-pulse">añadir al carrito</p>
             <BsFillCartCheckFill className="h-8 w-8 animate-bounce text-white"/>
           </div>
