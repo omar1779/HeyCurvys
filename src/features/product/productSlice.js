@@ -12,6 +12,8 @@ const initialState = {
   nameDb: "",
   prev: false,
   next: true,
+  modal: false,
+  checkout: false,
 };
 
 export const productSlice = createSlice({
@@ -38,6 +40,7 @@ export const productSlice = createSlice({
     },
     addProductCart: (state, action) => {
       state.cart.push(action.payload);
+      state.modal = true;
     },
     setCategory: (state, action) => {
       state.category = action.payload;
@@ -45,8 +48,22 @@ export const productSlice = createSlice({
     setTotalPrice: (state, action) => {
       state.totalPrice += action.payload;
     },
-    removeFromCart : (state, action) => {
-      state.cart = state.cart.filter((products) => products._id !== action.payload)
+    removeFromCart: (state, action) => {
+      state.cart = state.cart.filter(
+        (products) => products._id !== action.payload
+      );
+    },
+    modalActive: (state) => {
+      if (state.modal) {
+        state.modal = false;
+      }
+    },
+    checkoutActive: (state) => {
+      if (state.checkout) {
+        state.checkout = false;
+      } else {
+        state.checkout = true;
+      }
     },
   },
 });
@@ -95,7 +112,9 @@ export const {
   setCategory,
   getProductDetail,
   addProductCart,
-  removeFromCart
+  removeFromCart,
+  modalActive,
+  checkoutActive
 } = productSlice.actions;
 
 export default productSlice.reducer;

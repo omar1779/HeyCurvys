@@ -3,10 +3,12 @@ import { Link } from "react-router-dom";
 import { useSelector , useDispatch} from "react-redux";
 import {removeFromCart} from "../features/product/productSlice"
 import { BsFillTrashFill, BsFillArrowDownSquareFill } from "react-icons/bs";
+import PaypalCheckoutButton from "./PaypalCheckoutButton";
 
 function ProductCart() {
 	const dispatch = useDispatch()
   const { cart } = useSelector((state) => state.products);
+  const { checkout } = useSelector((state) => state.products);
   const total = cart
     .map((item) => item.price)
     .reduce((prev, curr) => prev + curr, 0);
@@ -15,7 +17,7 @@ function ProductCart() {
     currency: "USD",
   });
   return (
-    <div className="overflow-auto w-full  h-full flex items-center flex-col sm:p-4 text-black">
+    <div className="overflow-auto w-full  h-full flex items-center justify-center flex-col sm:p-4 text-black">
       <h2 className="mb-4 text-4xl font-thin text-black text-center">
         Carrito de compras HeyCurvys
       </h2>
@@ -64,6 +66,11 @@ function ProductCart() {
           <BsFillArrowDownSquareFill className="mx-8 h-8 w-10 text-violet-900 animate-bounce" />
         </div>
       )}
+      {checkout &&
+      <div>
+        <PaypalCheckoutButton/>
+      </div>
+      }
     </div>
   );
 }

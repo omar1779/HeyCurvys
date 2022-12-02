@@ -1,24 +1,29 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Pagination from "./Pagination";
 import { Link , useLocation} from "react-router-dom";
 import { AiFillHome, AiFillShopping, AiFillProfile } from "react-icons/ai";
 import { BsFillCartCheckFill } from "react-icons/bs";
 import { IoShareSocialSharp } from "react-icons/io5";
 import { RiAdminFill } from "react-icons/ri";
+import { checkoutActive } from "../features/product/productSlice";
+
 function Nav() {
   const location = useLocation()
   const [sidebar, setSidebar] = useState("");
   const [iconMobile, setIconMobile] = useState(false);
   const envAdmin = import.meta.env.VITE_ADMIN_GOOGLE;
   const { user } = useSelector((state) => state.admin);
+  const dispatch = useDispatch()
   const sidebarHandler = () => {
     if (sidebar === "") {
       setSidebar("hidden");
       setIconMobile(true);
+      dispatch(checkoutActive())
     } else {
       setIconMobile(false);
       setSidebar("");
+      dispatch(checkoutActive())
     }
   };
   return (
