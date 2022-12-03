@@ -13,7 +13,7 @@ const initialState = {
   prev: false,
   next: true,
   modal: false,
-  checkout: false,
+  checkout: null,
 };
 
 export const productSlice = createSlice({

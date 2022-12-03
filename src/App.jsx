@@ -15,7 +15,7 @@ function App() {
       <PayPalScriptProvider
         options={{
           "client-id":
-            import.meta.env.VITE_PAYPAL_CLIENT_ID,
+          "AaXvdeTFOA4XQvui4smDmNX4uSrbdSA4ZkG-wO9dqKkLzA6xUbLZXCP5ToLVfK5log-3tX-j7oDUiBjj"
         }}
       >
         <AnimatedRoutes />

@@ -8,7 +8,6 @@ import PaypalCheckoutButton from "./PaypalCheckoutButton";
 function ProductCart() {
 	const dispatch = useDispatch()
   const { cart } = useSelector((state) => state.products);
-  const { checkout } = useSelector((state) => state.products);
   const total = cart
     .map((item) => item.price)
     .reduce((prev, curr) => prev + curr, 0);
@@ -66,11 +65,9 @@ function ProductCart() {
           <BsFillArrowDownSquareFill className="mx-8 h-8 w-10 text-violet-900 animate-bounce" />
         </div>
       )}
-      {checkout &&
-      <div>
+      <div className="mt-5 -z-0">
         <PaypalCheckoutButton/>
       </div>
-      }
     </div>
   );
 }
