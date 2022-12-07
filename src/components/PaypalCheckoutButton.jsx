@@ -5,17 +5,18 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 function PaypalCheckoutButton() {
+  const [paidFor, setPaidFor] = useState(false);
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
   const { cart } = useSelector((state) => state.products);
   const total = cart
     .map((item) => item.price)
     .reduce((prev, curr) => prev + curr, 0);
-  console.log(total);
-  const [paidFor, setPaidFor] = useState(false);
-  const [error, setError] = useState(null);
+/* Creating a string of the items in the cart. */
+  const commercialInvoice = cart
+    .map((element) => element.name)
+    .join()
   const handleAprove = (orderID) => {
-    //call backend function to fullfill order
-    // if response is successful
     try {
       setPaidFor(true);
     } catch (error) {
@@ -52,7 +53,7 @@ function PaypalCheckoutButton() {
         return actions.order.create({
           purchase_units: [
             {
-              description: "description del producto",//FALTA ESTADO DE FACTURA
+              description: commercialInvoice,//FALTA ESTADO DE FACTURA
               amount: {
                 value: total, //añadir el punto en valor del product
               },
