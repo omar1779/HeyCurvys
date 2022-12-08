@@ -38,7 +38,7 @@ function PaypalCheckoutButton() {
     <PayPalButtons
       style={{
         color: "gold",
-        layout: "vertical",
+        layout: "horizontal",
         label: "buynow",
       }}
       onClick={(data, actions) => {

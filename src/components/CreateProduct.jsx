@@ -1,17 +1,20 @@
 import React from "react";
+import {useForm} from "react-hook-form"
 
 function CreateProduct() {
+  const {register , handleSubmit} = useForm();
+  const create = (data) =>{
+    console.log(data)
+  }
   return (
     <div className="p-6 w-full bg-gray-800 text-gray-50 rounded-md">
       <form
-        onSubmit={() => {
-          handlerNewProduct();
-        }}
+        onSubmit={handleSubmit(create)}
         className="flex flex-col mx-auto space-y-12 ng-untouched ng-pristine ng-valid"
       >
-        <fieldset className="grid grid-cols-4 gap-6 p-6 xl:flex xl:flex-col rounded-md shadow-sm bg-gray-900">
-          <div className="space-y-2 col-span-full lg:col-span-1">
-            <p className="font-medium">Nuevo producto</p>
+        <fieldset className="grid grid-cols-4 gap-6 p-6 xl:flex xl:flex-col font-thin rounded-md shadow-sm bg-violet-900">
+          <div className="space-y-2 col-span-full lg:col-span-1 font-thin">
+            <p className="font-thin">Nuevo producto</p>
             <p className="text-xs">
               formulario para crear un producto en la base de datos
             </p>
@@ -25,7 +28,8 @@ function CreateProduct() {
                 id="Nombre"
                 type="text"
                 placeholder="Nombre"
-                className="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 border-gray-700 text-gray-900"
+                className="w-full rounded-md focus:ring focus:ring-opacity-75 pl-1 focus:ring-violet-400 border-gray-700 text-gray-900"
+                {...register("name")}
               />
             </div>
             <div className="col-span-full sm:col-span-3">
@@ -36,7 +40,8 @@ function CreateProduct() {
                 id="imagen"
                 type="text"
                 placeholder="URL de Firebase Bucket"
-                className="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 border-gray-700 text-gray-900"
+                className="w-full rounded-md focus:ring focus:ring-opacity-75 pl-1 focus:ring-violet-400 border-gray-700 text-gray-900"
+                {...register("image")}
               />
             </div>
             <div className="col-span-full">
@@ -47,7 +52,8 @@ function CreateProduct() {
                 id="descripcion"
                 type="text"
                 placeholder="Descripcion"
-                className="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 border-gray-700 text-gray-900"
+                className="w-full rounded-md focus:ring focus:ring-opacity-75 pl-1 focus:ring-violet-400 border-gray-700 text-gray-900"
+                {...register("description")}
               />
             </div>
             <div className="col-span-full sm:col-span-2">
@@ -58,7 +64,8 @@ function CreateProduct() {
                 id="categoria"
                 type="text"
                 placeholder="Categoria"
-                className="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 border-gray-700 text-gray-900"
+                className="w-full rounded-md focus:ring focus:ring-opacity-75 pl-1 focus:ring-violet-400 border-gray-700 text-gray-900"
+                {...register("category")}
               />
             </div>
             <div className="col-span-full sm:col-span-2">
@@ -67,9 +74,10 @@ function CreateProduct() {
               </label>
               <input
                 id="state"
-                type="text"
+                type="number"
                 placeholder="Stock"
-                className="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 border-gray-700 text-gray-900"
+                className="w-full rounded-md focus:ring focus:ring-opacity-75 pl-1 focus:ring-violet-400 border-gray-700 text-gray-900"
+                {...register("stock")}
               />
             </div>
             <div className="col-span-full sm:col-span-2">
@@ -78,11 +86,13 @@ function CreateProduct() {
               </label>
               <input
                 id="Precio"
-                type="text"
+                type="number"
                 placeholder="valor numerico"
-                className="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 border-gray-700 text-gray-900"
+                className="w-full rounded-md focus:ring focus:ring-opacity-75 pl-1 focus:ring-violet-400 border-gray-700 text-gray-900"
+                {...register("price")}
               />
             </div>
+            <button className="bg-white w-20 text-black rounded-md hover:animate-pulse">Enviar</button>
           </div>
         </fieldset>
       </form>
