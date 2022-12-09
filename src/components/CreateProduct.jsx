@@ -1,10 +1,12 @@
 import React from "react";
 import {useForm} from "react-hook-form"
-
+import { useDispatch } from "react-redux";
+import {postProductAsync} from "../features/product/productSlice"
 function CreateProduct() {
+  const dispatch = useDispatch()
   const {register , handleSubmit} = useForm();
   const create = (data) =>{
-    console.log(data)
+    dispatch(postProductAsync(data));
   }
   return (
     <div className="p-6 w-full bg-gray-800 text-gray-50 rounded-md">

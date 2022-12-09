@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { data } from "autoprefixer";
 import axios from "axios";
 
 const initialState = {
@@ -102,6 +103,18 @@ export const getProductByIdAsync = (id) => async (dispatch) => {
     dispatch(getProductDetail(response.data));
   } catch (err) {
     console.log(err);
+  }
+};
+
+
+export const postProductAsync = (product) => async () => {
+  try {
+    const response = await axios.post(
+      `http://localhost:9000/products` ,product
+    );
+    console.log(response.data, "creado en la base de datos");
+  } catch (error) {
+    console.log(error);
   }
 };
 
