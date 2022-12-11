@@ -11,10 +11,10 @@ function Form() {
   return (
     <div className="h-full w-full flex flex-col lg:flex-row items-center justify-around lg:justify-evenly">
       <div className="text-center w-full h-auto flex flex-col items-center">
-        <h1 className="text-6xl mb-5 font-thin text-black">
+        <h1 className="text-3xl md:text-4xlmb-5 font-thin text-black">
           Perfil de usuario
         </h1>
-        <p className="mb-3 pb-5 font-thin text-3xl text-gray-800 text-center">
+        <p className="mb-3 pb-5 font-thin text-2xl md:text-3xl text-gray-800 text-center">
           Crea o Inicia un usuario con Google
         </p>
         <div
