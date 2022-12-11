@@ -1,8 +1,8 @@
 import React from "react";
-
+import img from "../../public/Profile-details.svg"
 function Ilustration() {
   return <div>
-    <img src="../../public/Profile-details.svg" alt="" />
+    <img src={img} alt="" />
   </div>;
 }
 

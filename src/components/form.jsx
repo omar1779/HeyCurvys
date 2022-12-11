@@ -2,6 +2,7 @@ import React from "react";
 import GoogleButton from "./GoogleButton";
 import { adminLogin } from "../features/auth/authSlice";
 import { useSelector, useDispatch } from "react-redux";
+import img from "../../public/Blueprint.png"
 function Form() {
   const dispatch = useDispatch();
   const handlerAdmin = () => {
@@ -26,7 +27,7 @@ function Form() {
         </div>
       </div>
       <div className="w-full lg:h-full flex justify-center items-center">
-        <img src="../../public/Blueprint.png" alt="" className="h-64 w-64 lg:h-80 lg:w-80" />
+        <img src={img} alt="" className="h-64 w-64 lg:h-80 lg:w-80" />
       </div>
     </div>
   );
