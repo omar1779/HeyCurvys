@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { data } from "autoprefixer";
 import axios from "axios";
+axios.defaults.baseURL="http://localhost:9000"
 
 const initialState = {
   products: [],
@@ -71,7 +71,7 @@ export const productSlice = createSlice({
 export const getAllProductsAsync = (page, category) => async (dispatch) => {
   try {
     const response = await axios.get(
-      `http://localhost:9000/get/products?page=${page}&limit=${10}&filter=${
+      `/get/products?page=${page}&limit=${10}&filter=${
         category || "allProducts"
       }`
     );
@@ -85,7 +85,7 @@ export const getAllProductsAsync = (page, category) => async (dispatch) => {
 export const deleteProductAsync = (product) => async () => {
   try {
     const response = await axios.delete(
-      `http://localhost:9000/delete?product=${product}`
+      `/delete?product=${product}`
     );
     console.log(response.data, "eliminado con exito");
   } catch (error) {
@@ -98,7 +98,7 @@ export const getProductByIdAsync = (id) => async (dispatch) => {
   console.log(parserId);
   try {
     const response = await axios.get(
-      `http://localhost:9000/get/products/${parserId}`
+      `/get/products/${parserId}`
     );
     dispatch(getProductDetail(response.data));
   } catch (err) {
@@ -110,7 +110,7 @@ export const getProductByIdAsync = (id) => async (dispatch) => {
 export const postProductAsync = (product) => async () => {
   try {
     const response = await axios.post(
-      `http://localhost:9000/products` ,product
+      `/products` ,product
     );
     console.log(response.data, "creado en la base de datos");
   } catch (error) {

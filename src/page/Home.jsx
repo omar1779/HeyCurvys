@@ -8,7 +8,7 @@ function Home() {
     initial={{opacity: 0}}
     animate={{opacity:1}}
     exit={{opacity:0}}
-    className='bg-purple-100 h-full flex justify-between'>
+    className='bg-white h-full flex justify-between'>
         <Nav/>
         <Bienvenida/>
     </motion.div>
