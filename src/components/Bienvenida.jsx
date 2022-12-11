@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function Bienvenida() {
   return (
     <div className="flex h-full flex-col lg:flex-row items-center justify-around lg:pl-10 text-center 3xl:pr-20">
-      <img src="../../public/gif home.gif"
+      <img src="../assets/gif home.gif"
 			className="h-80 w-80 md:h-96 md:w-96 lg:h-64 lg:w-64 3xl:h-3/5 3xl:w-3/5"
 			alt="woman" />
       <div className="flex flex-col justify-around pl-9 pr-9 3xl:h-3/5">
