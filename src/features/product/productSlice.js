@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-axios.defaults.baseURL="http://localhost:9000"
+axios.defaults.baseURL="https://backend-heycurvys-production.up.railway.app"
 
 const initialState = {
   products: [],
