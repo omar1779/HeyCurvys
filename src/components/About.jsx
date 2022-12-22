@@ -16,16 +16,16 @@ function about() {
       </div>
       <div className="flex flex-col justify-evenly lg:flex-row">
         <div className="flex justify-around items-center flex-col m-5">
-          <AiFillInstagram className="h-10 w-10 text-violet-900 animate-bounce" />
-          <p className="font-thin">Instagram @HeyCurvys</p>
+          <AiFillInstagram className="h-10 w-10 text-violet-900 animate-bounce cursor-pointer" />
+          <a href="https://instagram.com/_heycurvys?igshid=ZmRlMzRkMDU=" target="_blank" className="font-thin">Instagram @HeyCurvys</a>
         </div>
         <div className="flex justify-around items-center flex-col m-5">
           <AiFillFacebook className="h-10 w-10 text-violet-900 animate-bounce" />
-          <p className="font-thin">Facebook @HeyCurvysShop</p>
+          <a href="https://www.facebook.com/profile.php?id=100086965663930&mibextid=ZbWKwL" target="_blank" className="font-thin">Facebook</a>
         </div>
         <div className="flex justify-around items-center flex-col m-5">
-          <AiOutlineWhatsApp className="h-10 w-10 text-violet-900 animate-bounce" />
-          <p className="font-thin">Whatsapp +507 6000-0000</p>
+          <AiOutlineWhatsApp className="h-10 w-10 text-violet-900 animate-bounce cursor-pointer" />
+          <a href="https://api.whatsapp.com/message/545IDVRTTIV6D1?autoload=1&app_absent=0" target="_blank" className="font-thin">Whatsapp +507 6000-0000</a>
         </div>
       </div>
     </div>

@@ -10,8 +10,8 @@ import { checkoutActive } from "../features/product/productSlice";
 
 function Nav() {
   const location = useLocation()
-  const [sidebar, setSidebar] = useState("");
-  const [iconMobile, setIconMobile] = useState(false);
+  const [sidebar, setSidebar] = useState("hidden");
+  const [iconMobile, setIconMobile] = useState(true);
   const envAdmin = import.meta.env.VITE_ADMIN_GOOGLE;
   const { user } = useSelector((state) => state.admin);
   const dispatch = useDispatch()
