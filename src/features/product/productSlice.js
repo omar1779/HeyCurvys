@@ -40,7 +40,7 @@ export const productSlice = createSlice({
       }
     },
     addProductCart: (state, action) => {
-      state.cart.push(action.payload);
+      state.cart.push(action.payload.productDetail);
       state.modal = true;
     },
     setCategory: (state, action) => {

@@ -12,11 +12,13 @@ function PaypalCheckoutButton() {
   const total = cart
     .map((item) => item.price)
     .reduce((prev, curr) => prev + curr, 0);
+    console.log(total)
 /* Creating a string of the items in the cart. */
   const commercialInvoice = cart
     .map((element) => element.name)
     .join()
-  const handleAprove = (orderID) => {
+    console.log(commercialInvoice)
+/*   const handleAprove = (orderID) => {
     try {
       setPaidFor(true);
     } catch (error) {
@@ -30,32 +32,29 @@ function PaypalCheckoutButton() {
   };
   if (paidFor) {
     return alert("Thank you for your purchase");
-  }
-  if (error) {
-    return alert(error);
-  }
+  } */
   return (
     <PayPalButtons
-      style={{
+/*       style={{
         color: "gold",
         layout: "horizontal",
         label: "buynow",
-      }}
-      onClick={(data, actions) => {
+      }} */
+/*       onClick={(data, actions) => {
         if (total === 0) {
           setError("el carrito de compras esta vacio");
           return actions.reject();
         } else {
           return actions.resolve();
         }
-      }}
+      }} */
       createOrder={(data, actions) => {
         return actions.order.create({
           purchase_units: [
             {
               description: commercialInvoice,//FALTA ESTADO DE FACTURA
               amount: {
-                value: total, //añadir el punto en valor del product
+                value: "10.99", //añadir el punto en valor del product
               },
             },
           ],
@@ -66,13 +65,13 @@ function PaypalCheckoutButton() {
         console.log("order", order);
         handleAprove(data.orderID);
       }}
-      onCancel={() => {
+/*    onCancel={() => {
         navigate("/cart");
       }}
       onError={(err) => {
         setError(err);
         console.error("Paypal Checkout", err);
-      }}
+      }} */
     />
   );
 }
