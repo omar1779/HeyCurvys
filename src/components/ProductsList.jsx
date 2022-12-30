@@ -1,7 +1,9 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { getAllProductsAsync } from "../features/product/productSlice";
 import { Link } from "react-router-dom";
 function ProductsList() {
+  const dispatch = useDispatch()
   const { products } = useSelector((state) => state.products);
   return (
     <div className="bg-white h-full flex justify-center items-center p-12 overflow-auto">
@@ -29,6 +31,7 @@ function ProductsList() {
             </Link>
           ))}
         </div>
+          {products.length === 1 ? <button onClick={()=> dispatch(getAllProductsAsync(undefined,"allProducts"))} className="bg-violet-900 rounded-lg w-52 mt-10 h-10 text-white animate-pulse">ver todos los productos</button> : <></>}
       </div>
     </div>
   );

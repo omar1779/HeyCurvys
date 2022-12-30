@@ -1,11 +1,14 @@
-import React from "react";
+import React, {useState} from "react";
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
 import {BsFillFilterSquareFill} from "react-icons/bs"
 import { useDispatch } from "react-redux";
-import { incrementPage,decrementPage,setCategory } from "../features/product/productSlice";
+import { incrementPage,decrementPage,setCategory , getProductByNameAsync } from "../features/product/productSlice";
 function Pagination() {
+  const [search , setSearch] = useState("")
   const dispatch = useDispatch()
-
+  const handleSearchName = (e) => {
+    dispatch(getProductByNameAsync(search))
+  }
   return (
     <div className="flex flex-col ">
       <h1 className="text-white mb-2 flex items-center "><BsFillFilterSquareFill className="mr-2"/>Paginacion</h1>
@@ -31,6 +34,19 @@ function Pagination() {
           <option value="vestidos">vestidos</option>
         </select>
       </div>
+      <div className="flex justify-center mt-3 mb-4 w-full">
+            <div className="flex flex-col">
+              <input
+                className=" focus:outline-none rounded w-full text-sm text-black bg-gray-100 pl-10 py-2"
+                type="text"
+                placeholder="Buscar productos"
+                onChange={(e)=> setSearch(e.target.value)}
+              />
+            <button
+            onClick={handleSearchName}
+            className="mt-3 rounded w-full text-sm text-white hover:bg-gray-500 focus:bg-gray-800 bg-gray-600 py-2">Buscar</button>
+            </div>
+          </div>
     </div>
   );
 }

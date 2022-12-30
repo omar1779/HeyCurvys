@@ -6,6 +6,7 @@ const initialState = {
   products: [],
   cart: [],
   productDetail: {},
+  productName: {},
   commercialInvoice: "",
   totalPrice: 0,
   page: 1,
@@ -40,11 +41,16 @@ export const productSlice = createSlice({
       }
     },
     addProductCart: (state, action) => {
-      state.cart.push(action.payload.productDetail);
-      state.modal = true;
+      const product = changeStockDetail(action.payload.productDetail ,action.payload.multiplicator)
+      state.modal = true
+      state.cart.push(product)
     },
     setCategory: (state, action) => {
       state.category = action.payload;
+    },
+    getProductName: (state, action) => {
+      state.products = []
+      state.products.push(action.payload);
     },
     setTotalPrice: (state, action) => {
       state.totalPrice += action.payload;
@@ -106,6 +112,17 @@ export const getProductByIdAsync = (id) => async (dispatch) => {
   }
 };
 
+export const getProductByNameAsync = (name) => async (dispatch) => {
+  try {
+    const response = await axios.get(
+      `/get/name?name=${name}`
+    );
+    console.log(response.data)
+    dispatch(getProductName(response.data));
+  } catch (err) {
+    console.log(err, "ocurrio error en la peticion por name");
+  }
+};
 
 export const postProductAsync = (product) => async () => {
   try {
@@ -118,6 +135,12 @@ export const postProductAsync = (product) => async () => {
   }
 };
 
+export const changeStockDetail = (product, multiplicator) => {
+  const name = product.name
+  const items = multiplicator
+  const price = product.price * multiplicator
+  return {name , price,items}
+}
 export const {
   getAllProducts,
   incrementPage,
@@ -127,7 +150,8 @@ export const {
   addProductCart,
   removeFromCart,
   modalActive,
-  checkoutActive
+  checkoutActive,
+  getProductName,
 } = productSlice.actions;
 
 export default productSlice.reducer;

@@ -92,15 +92,6 @@ function Nav() {
             )}
           </ul>
           {location.pathname === "/products" || location.pathname === "/admin"? <Pagination/> : <></> }
-          <div className="flex justify-center mt-3 mb-4 w-full">
-            <div className="relative ">
-              <input
-                className=" focus:outline-none rounded w-full text-sm text-black bg-gray-100 pl-10 py-2"
-                type="text"
-                placeholder="Buscar"
-              />
-            </div>
-          </div>
         </div>
       </div>
       <div
@@ -229,15 +220,6 @@ function Nav() {
             )}
           </ul>
           {location.pathname === "/products" || location.pathname === "/admin"? <Pagination/> : <></> }
-          <div className="flex shadow-sm justify-center mt-3 mb-7 w-full">
-            <div className="relative ">
-              <input
-                className="focus:outline-none rounded w-full text-base text-black bg-gray-100 pl-10 py-2"
-                type="text"
-                placeholder="Buscar"
-              />
-            </div>
-          </div>
         </div>
       </div>
     </div>

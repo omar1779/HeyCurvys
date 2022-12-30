@@ -35,14 +35,8 @@ function ProductCart() {
           <div className="border-b border-opacity-20 rounded-xl border-gray-700 bg-violet-900 text-white flex justify-between px-10 items-center h-full">
             <p>{elements.name}</p>
             <div className="pr-3 pl-3 pb-1">
-              <img
-                className="object-cover w-12 h-12 rounded-full"
-                src={elements.image}
-                alt={elements.name}
-              />
-            </div>
-            <div className="pr-3 pl-3 pb-1">
               <p>{elements.price}</p>
+              <p>X {elements.items}</p>
             </div>
             <div className="text-center">
               <BsFillTrashFill
@@ -59,8 +53,8 @@ function ProductCart() {
       ) : (
         <div className="flex justify-center items-center bg-white rounded-3xl w-4/6">
           <BsFillArrowDownSquareFill className="mx-8 h-8 w-10 text-violet-900 animate-bounce" />
-          <h2 className="my-4 text-2xl font-bold text-violet-900 text-center animate-pulse">
-            Total del carrito {format}
+          <h2 className="my-4 text-xl font-bold text-violet-900 text-center animate-pulse">
+            Total : {format}
           </h2>
           <BsFillArrowDownSquareFill className="mx-8 h-8 w-10 text-violet-900 animate-bounce" />
         </div>

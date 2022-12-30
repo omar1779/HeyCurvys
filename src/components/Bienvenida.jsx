@@ -21,19 +21,19 @@ function Bienvenida() {
     return () => clearInterval(interval);
   });
   return (
-    <div className="px-5 flex h-full w-full flex-col lg:flex-row items-center justify-evenly lg:pl-10 text-center 3xl:pr-20">
+    <div className="px-5 flex h-full w-full flex-col items-center justify-evenly lg:pl-10 text-center 3xl:pr-20">
       <h1 className="font-thin text-violet-900 text-4xl mb-5 md:text-7xl md:mb-10 lg:text-5xl 3xl:text-8xl animate-pulse">
         HeyCurvys
       </h1>
-      <div className="w-full h-4/6 bg-violet-900 rounded-lg shadow-2xl shadow-black">
+      <div className="w-full h-4/6 lg:w-3/5 2xl:w-3/6 3xl:w-2/6 bg-violet-900 rounded-lg shadow-2xl shadow-black">
         <img
           src={arrayImage[carrousel]}
-          className="object-cover h-full w-full p-5 md:h-96 md:w-96 lg:h-64 lg:w-64 3xl:h-3/5 3xl:w-3/5 "
+          className="object-cover h-full w-full p-5 md:h-full md:w-full lg:h-full lg:w-full 3xl:h-full 3xl:w-full "
           alt="gif de bienvenida"
         />
       </div>
       <div className="flex flex-col justify-around pl-9 pr-9 3xl:h-3/5">
-        <p className="text-base md:text-3xl lg:text-xl 3xl:text-3xl font-serif 3xl:text-left animate-bounce font-thin">
+        <p className="text-base md:text-xl lg:text-xl 3xl:text-xl font-serif 3xl:text-left animate-bounce font-thin">
           activa el menu lateral si estas en un dispositivo movil para moverte
           por la aplicacion <br />
           Proyecto en version BETA 1.1
